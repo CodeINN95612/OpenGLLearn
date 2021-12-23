@@ -90,6 +90,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Engine\BufferLayout.cpp" />
+    <ClCompile Include="src\Engine\IndexBuffer.cpp" />
     <ClCompile Include="src\Engine\Input.cpp" />
     <ClCompile Include="src\Engine\Shader.cpp" />
     <ClCompile Include="src\Engine\VertexBuffer.cpp" />
@@ -98,6 +100,10 @@
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Engine\BufferLayout.hpp">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="src\Engine\IndexBuffer.hpp">
       <SubType>
       </SubType>

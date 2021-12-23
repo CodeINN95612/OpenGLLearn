@@ -33,6 +33,7 @@ namespace GL
 		);
 
 		glViewport(0, 0, m_Width, m_Height);
+		glfwSwapInterval(1);
 	}
 
 	Window::~Window()

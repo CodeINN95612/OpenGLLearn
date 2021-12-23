@@ -38,6 +38,18 @@ namespace GL
 		glUseProgram(m_Program);
 	}
 
+	void Shader::SetUniform4f(const char* name, const glm::vec4 value)
+	{
+		int uniformLocation = GetGLUniformPos(name);
+		glUniform4f(uniformLocation, value.x, value.y, value.z, value.a);
+	}
+
+	void Shader::SetUniform3f(const char* name, const glm::vec3 value)
+	{
+		int uniformLocation = GetGLUniformPos(name);
+		glUniform3f(uniformLocation, value.x, value.y, value.z);
+	}
+
 	void Shader::Init(const char* vertexSource, const char* fragmentSource)
 	{
 		m_VertexShader = CreateShader(Stage::Vertex, vertexSource);
@@ -115,6 +127,13 @@ namespace GL
 			case GL::Shader::Stage::Fragment: return GL_FRAGMENT_SHADER;
 		}
 		assert(false && "Forgot to specify Shader::GlShaderStageFromStage Return Value");
+	}
+
+	uint32_t Shader::GetGLUniformPos(const char* name)
+	{
+		int vertexColorLocation = glGetUniformLocation(m_Program, name);
+		assert(vertexColorLocation > -1 && "Unable to find uniform");
+		return vertexColorLocation;
 	}
 }
 

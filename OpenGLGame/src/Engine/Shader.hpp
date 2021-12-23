@@ -3,6 +3,9 @@
 //std
 #include <cstdint>
 
+//glm
+#include <glm/glm.hpp>
+
 namespace GL
 {
 	class Shader
@@ -16,6 +19,10 @@ namespace GL
 		Shader& operator==(const Shader& other) = delete;
 
 		void Bind();
+		inline uint32_t GetGLProgram() const { return m_Program; }
+
+		void SetUniform4f(const char* name, const glm::vec4 value);
+		void SetUniform3f(const char* name, const glm::vec3 value);
 
 	private:
 		enum class Stage
@@ -36,5 +43,6 @@ namespace GL
 		void CreateProgram();
 
 		static uint32_t GlShaderStageFromStage(Stage stage);
+		uint32_t GetGLUniformPos(const char* name);
 	};
 }
