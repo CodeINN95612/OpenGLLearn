@@ -50,6 +50,23 @@ namespace GL
 		glUniform3f(uniformLocation, value.x, value.y, value.z);
 	}
 
+	void Shader::SetUniform1i(const char* name, int32_t value)
+	{
+		int uniformLocation = GetGLUniformPos(name);
+		glUniform1i(uniformLocation, value);
+	}
+
+	void Shader::SetUniformMat4f(const char* name, const glm::mat4& matrix)
+	{
+		int uniformLocation = GetGLUniformPos(name);
+		glUniformMatrix4fv(uniformLocation, 1, GL_FALSE, glm::value_ptr(matrix));
+	}
+
+	void Shader::SetTexture(const char* name, const Texture& texture)
+	{
+		SetUniform1i(name, static_cast<int32_t>(texture.GetBindId()));
+	}
+
 	void Shader::Init(const char* vertexSource, const char* fragmentSource)
 	{
 		m_VertexShader = CreateShader(Stage::Vertex, vertexSource);

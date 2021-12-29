@@ -17,6 +17,8 @@ namespace GL
 		inline uint32_t GetWidth() const { return m_Width; }
 		inline uint32_t GetHeight() const { return m_Height; }
 
+		void OnResize(int width, int height);
+
 		inline void* GetGLFWWindowPtr() { return m_pGLFWwindow; }
 
 		void PollEvents() const;

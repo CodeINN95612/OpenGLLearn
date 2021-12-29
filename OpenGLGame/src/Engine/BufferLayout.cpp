@@ -48,17 +48,6 @@ namespace GL
 		glBindVertexArray(0);
 	}
 
-	void BufferLayout::Draw(uint32_t vertexCount)
-	{
-		assert(m_Specified && "A call to BufferLayout::SetVertexAttributeTypes is needed before this method call");
-		if (m_pIndexBuffer)
-		{
-			glDrawElements(GL_TRIANGLES, vertexCount, GL_UNSIGNED_INT, 0);
-			return;
-		}
-		glDrawArrays(GL_TRIANGLES, 0, vertexCount);
-	}
-
 	void BufferLayout::SpecifyAttributes(VertexAttribType* attribLayout, uint32_t attribCount)
 	{
 		uint32_t stride = 0;
@@ -71,7 +60,7 @@ namespace GL
 			VertexAttribType type = attribLayout[i];
 			glEnableVertexAttribArray(i);
 			glVertexAttribPointer(i, CountFromType(type), GLTypeFromType(type),
-				GL_FALSE, stride, (void*)offset);
+				GL_FALSE, stride, reinterpret_cast<void*>(offset));
 			offset += SizeFromType(attribLayout[i]);
 		}
 		m_Specified = true;

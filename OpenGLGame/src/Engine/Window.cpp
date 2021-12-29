@@ -26,13 +26,16 @@ namespace GL
 
 		assert(gladLoadGLLoader((GLADloadproc)glfwGetProcAddress) && "Unable to initialize glad");
 
-		glfwSetFramebufferSizeCallback((GLFWwindow*)m_pGLFWwindow, [](GLFWwindow* pWindow, int width, int height)
+		glfwSetFramebufferSizeCallback((GLFWwindow*)m_pGLFWwindow, [](GLFWwindow* pGLWindow, int width, int height)
 			{
+				Window* pWindow = (Window*)glfwGetWindowUserPointer(pGLWindow);
+				pWindow->OnResize(width, height);
+
 				glViewport(0, 0, width, height);
 			}
 		);
 
-		glViewport(0, 0, m_Width, m_Height);
+		//glViewport(0, 0, m_Width, m_Height);
 		glfwSwapInterval(1);
 	}
 
@@ -40,6 +43,12 @@ namespace GL
 	{
 		glfwDestroyWindow((GLFWwindow*)m_pGLFWwindow);
 		glfwTerminate();
+	}
+
+	void Window::OnResize(int width, int height)
+	{
+		m_Width = width;
+		m_Height = height;
 	}
 
 	void Window::PollEvents() const

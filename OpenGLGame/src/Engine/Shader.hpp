@@ -1,10 +1,13 @@
 #pragma once
 
+#include "Texture.hpp"
+
 //std
 #include <cstdint>
 
 //glm
 #include <glm/glm.hpp>
+#include <glm/gtc/type_ptr.hpp>
 
 namespace GL
 {
@@ -23,6 +26,12 @@ namespace GL
 
 		void SetUniform4f(const char* name, const glm::vec4 value);
 		void SetUniform3f(const char* name, const glm::vec3 value);
+
+		void SetUniform1i(const char* name, int32_t value);
+
+		void SetUniformMat4f(const char* name, const glm::mat4& matrix);
+
+		void SetTexture(const char* name, const Texture& texture);
 
 	private:
 		enum class Stage

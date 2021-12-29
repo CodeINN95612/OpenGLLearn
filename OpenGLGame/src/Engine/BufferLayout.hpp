@@ -11,7 +11,7 @@ namespace GL
 	class BufferLayout
 	{
 	public:
-		enum class VertexAttribType
+		enum class VertexAttribType : uint8_t
 		{
 			Float,
 			Float2,
@@ -37,7 +37,6 @@ namespace GL
 
 		void Bind();
 		void Unbind();
-		void Draw(uint32_t vertexCount);
 
 	private:
 		uint32_t m_Vao;
