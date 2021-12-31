@@ -42,11 +42,11 @@ namespace GL
 
 		glm::mat4 view(1.0f);
 
-		glm::mat4 projection = glm::ortho(0.0f, (float)m_Width, (float)m_Height, 0.0f, -1.0f, 1.0f);
+		glm::mat4 projection = glm::ortho(0.0f, (float)m_Width, (float)m_Height, 0.0f, -1.1f, 1.1f);
 
 		m_RectPipeline->Bind(0);
 		m_RectPipeline->GetShader()->SetTexture("uTexture", 0);
-		m_RectPipeline->GetShader()->SetUniform4f("uColor", Color::Vec::Magenta);
+		m_RectPipeline->GetShader()->SetUniform4f("uColor", Color::Vec::Black);
 		m_RectPipeline->GetShader()->SetUniformMat4f("uMVP", projection * view * model);
 
 		RendererCmd::DrawElements(6);
@@ -57,10 +57,10 @@ namespace GL
 		std::shared_ptr<Shader> rectShader = std::make_shared<Shader>("./assets/shaders/Renderer2D/Rect.vert", "./assets/shaders/Renderer2D/Rect.frag");
 		
 		float rectVertices[] = {
-			0.0f,  1.0f, 0.0f, 1.0f,
-			0.0f,  0.0f, 0.0f, 0.0f,
-			1.0f,  0.0f, 1.0f, 0.0f,
-			1.0f,  1.0f, 1.0f, 1.0f
+			-0.5f,  0.5f, 0.0f, 1.0f,
+			-0.5f, -0.5f, 0.0f, 0.0f,
+			 0.5f, -0.5f, 1.0f, 0.0f,
+			 0.5f,  0.5f, 1.0f, 1.0f
 		};
 
 		uint32_t rectindices[] = {
