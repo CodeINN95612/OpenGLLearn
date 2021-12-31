@@ -62,9 +62,9 @@ namespace GL
 		glUniformMatrix4fv(uniformLocation, 1, GL_FALSE, glm::value_ptr(matrix));
 	}
 
-	void Shader::SetTexture(const char* name, const Texture& texture)
+	void Shader::SetTexture(const char* name, const uint32_t textureBindSlot)
 	{
-		SetUniform1i(name, static_cast<int32_t>(texture.GetBindId()));
+		SetUniform1i(name, textureBindSlot);
 	}
 
 	void Shader::Init(const char* vertexSource, const char* fragmentSource)
@@ -88,7 +88,7 @@ namespace GL
 			int logLength = 0;
 			glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &logLength);
 
-			char *infoLog = new char[logLength + 1];
+			char *infoLog = new char[logLength + 1u];
 			const char* stagestr = "";
 			switch (stage)
 			{
@@ -126,7 +126,7 @@ namespace GL
 			int logLength = 0;
 			glGetProgramiv(m_Program, GL_INFO_LOG_LENGTH, &logLength);
 
-			char* infoLog = new char[logLength + 1];
+			char* infoLog = new char[logLength + 1u];
 
 			glGetProgramInfoLog(m_Program, logLength, nullptr, infoLog);
 			printf("ERROR::SHADER::PROGRAM::LINK_FAILED:\n%s", infoLog);

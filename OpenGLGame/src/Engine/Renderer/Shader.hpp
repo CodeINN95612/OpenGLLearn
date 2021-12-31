@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Texture.hpp"
+#include "Engine/Renderer/Texture2D.hpp"
 
 //std
 #include <cstdint>
@@ -31,7 +31,7 @@ namespace GL
 
 		void SetUniformMat4f(const char* name, const glm::mat4& matrix);
 
-		void SetTexture(const char* name, const Texture& texture);
+		void SetTexture(const char* name, const uint32_t textureBindSlot);
 
 	private:
 		enum class Stage

@@ -18,28 +18,28 @@
     <ClCompile Include="src\Libs\glad\glad.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Engine\Window.cpp">
+    <ClCompile Include="src\Engine\Core\Window.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Engine\Input.cpp">
+    <ClCompile Include="src\Engine\Core\Input.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Engine\VertexBuffer.cpp">
+    <ClCompile Include="src\Engine\Renderer\VertexBuffer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Engine\Shader.cpp">
+    <ClCompile Include="src\Engine\Renderer\Shader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Engine\BufferLayout.cpp">
+    <ClCompile Include="src\Engine\Renderer\BufferLayout.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Engine\IndexBuffer.cpp">
+    <ClCompile Include="src\Engine\Renderer\IndexBuffer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Libs\stb_image\stb_image.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Engine\Texture.cpp">
+    <ClCompile Include="src\Engine\Renderer\Texture2D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Engine\GUI\GuiRenderer.cpp">
@@ -48,7 +48,7 @@
     <ClCompile Include="src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Engine\Renderer\Pipeline.cpp">
+    <ClCompile Include="src\Engine\Renderer\GraphicsPipeline2D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Engine\Renderer\Renderer2D.cpp">
@@ -57,30 +57,33 @@
     <ClCompile Include="src\Engine\Renderer\RendererCmd.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Engine\Renderer\Image2D.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Engine\Window.hpp">
+    <ClInclude Include="src\Engine\Core\Window.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Engine\Input.hpp">
+    <ClInclude Include="src\Engine\Core\Input.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Engine\Shader.hpp">
+    <ClInclude Include="src\Engine\Renderer\Shader.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Engine\VertexBuffer.hpp">
+    <ClInclude Include="src\Engine\Renderer\VertexBuffer.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Engine\IndexBuffer.hpp">
+    <ClInclude Include="src\Engine\Renderer\IndexBuffer.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Engine\BufferLayout.hpp">
+    <ClInclude Include="src\Engine\Renderer\BufferLayout.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Libs\stb_image\stb_image.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Engine\Texture.hpp">
+    <ClInclude Include="src\Engine\Renderer\Texture2D.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Engine\GUI\GuiRenderer.hpp">
@@ -89,17 +92,26 @@
     <ClInclude Include="src\Engine\Renderer\Renderer2D.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Engine\Renderer\Pipeline.hpp">
+    <ClInclude Include="src\Engine\Renderer\GraphicsPipeline2D.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Engine\Renderer\RendererCmd.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\Engine\Renderer\Image2D.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Renderer\Color.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Engine.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="shaders\GUI\Gui.vert" />
-    <None Include="shaders\GUI\Gui.frag" />
-    <None Include="shaders\Renderer2D\Rect.frag" />
-    <None Include="shaders\Renderer2D\Rect.vert" />
+    <None Include="assets\shaders\GUI\Gui.vert" />
+    <None Include="assets\shaders\GUI\Gui.frag" />
+    <None Include="assets\shaders\Renderer2D\Rect.frag" />
+    <None Include="assets\shaders\Renderer2D\Rect.vert" />
   </ItemGroup>
 </Project>

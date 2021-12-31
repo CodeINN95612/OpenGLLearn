@@ -91,17 +91,18 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\Engine\GUI\GuiRenderer.cpp" />
-    <ClCompile Include="src\Engine\Renderer\Pipeline.cpp" />
+    <ClCompile Include="src\Engine\Renderer\Image2D.cpp" />
+    <ClCompile Include="src\Engine\Renderer\GraphicsPipeline2D.cpp" />
     <ClCompile Include="src\Engine\Renderer\Renderer2D.cpp" />
     <ClCompile Include="src\Engine\Renderer\RendererCmd.cpp" />
-    <ClCompile Include="src\Engine\Texture.cpp" />
+    <ClCompile Include="src\Engine\Renderer\Texture2D.cpp" />
     <ClCompile Include="src\Libs\stb_image\stb_image.cpp" />
-    <ClCompile Include="src\Engine\BufferLayout.cpp" />
-    <ClCompile Include="src\Engine\IndexBuffer.cpp" />
-    <ClCompile Include="src\Engine\Input.cpp" />
-    <ClCompile Include="src\Engine\Shader.cpp" />
-    <ClCompile Include="src\Engine\VertexBuffer.cpp" />
-    <ClCompile Include="src\Engine\Window.cpp" />
+    <ClCompile Include="src\Engine\Renderer\BufferLayout.cpp" />
+    <ClCompile Include="src\Engine\Renderer\IndexBuffer.cpp" />
+    <ClCompile Include="src\Engine\Core\Input.cpp" />
+    <ClCompile Include="src\Engine\Renderer\Shader.cpp" />
+    <ClCompile Include="src\Engine\Renderer\VertexBuffer.cpp" />
+    <ClCompile Include="src\Engine\Core\Window.cpp" />
     <ClCompile Include="src\Libs\glad\glad.c" />
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
@@ -110,7 +111,19 @@
       <SubType>
       </SubType>
     </ClInclude>
-    <ClInclude Include="src\Engine\Renderer\Pipeline.hpp">
+    <ClInclude Include="src\Engine\Engine.hpp">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Renderer\Color.hpp">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Renderer\Image2D.hpp">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Renderer\GraphicsPipeline2D.hpp">
       <SubType>
       </SubType>
     </ClInclude>
@@ -122,7 +135,7 @@
       <SubType>
       </SubType>
     </ClInclude>
-    <ClInclude Include="src\Engine\Texture.hpp">
+    <ClInclude Include="src\Engine\Renderer\Texture2D.hpp">
       <SubType>
       </SubType>
     </ClInclude>
@@ -130,36 +143,36 @@
       <SubType>
       </SubType>
     </ClInclude>
-    <ClInclude Include="src\Engine\BufferLayout.hpp">
+    <ClInclude Include="src\Engine\Renderer\BufferLayout.hpp">
       <SubType>
       </SubType>
     </ClInclude>
-    <ClInclude Include="src\Engine\IndexBuffer.hpp">
+    <ClInclude Include="src\Engine\Renderer\IndexBuffer.hpp">
       <SubType>
       </SubType>
     </ClInclude>
-    <ClInclude Include="src\Engine\Input.hpp">
+    <ClInclude Include="src\Engine\Core\Input.hpp">
       <SubType>
       </SubType>
     </ClInclude>
-    <ClInclude Include="src\Engine\Shader.hpp">
+    <ClInclude Include="src\Engine\Renderer\Shader.hpp">
       <SubType>
       </SubType>
     </ClInclude>
-    <ClInclude Include="src\Engine\VertexBuffer.hpp">
+    <ClInclude Include="src\Engine\Renderer\VertexBuffer.hpp">
       <SubType>
       </SubType>
     </ClInclude>
-    <ClInclude Include="src\Engine\Window.hpp">
+    <ClInclude Include="src\Engine\Core\Window.hpp">
       <SubType>
       </SubType>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="shaders\GUI\Gui.frag" />
-    <None Include="shaders\GUI\Gui.vert" />
-    <None Include="shaders\Renderer2D\Rect.frag" />
-    <None Include="shaders\Renderer2D\Rect.vert" />
+    <None Include="assets\shaders\GUI\Gui.frag" />
+    <None Include="assets\shaders\GUI\Gui.vert" />
+    <None Include="assets\shaders\Renderer2D\Rect.frag" />
+    <None Include="assets\shaders\Renderer2D\Rect.vert" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

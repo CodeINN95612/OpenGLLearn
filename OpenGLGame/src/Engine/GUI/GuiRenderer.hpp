@@ -1,8 +1,8 @@
 #pragma once
 
-#include "../Window.hpp"
-#include "../Shader.hpp"
-#include "../BufferLayout.hpp"
+#include "Engine/Core/Window.hpp"
+#include "Engine/Renderer/Shader.hpp"
+#include "Engine/Renderer/BufferLayout.hpp"
 
 //std
 #include <cstdint>

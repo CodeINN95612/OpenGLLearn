@@ -1,7 +1,7 @@
 #pragma once
 
-#include "VertexBuffer.hpp"
-#include "IndexBuffer.hpp"
+#include "Engine/Renderer/VertexBuffer.hpp"
+#include "Engine/Renderer/IndexBuffer.hpp"
 
 //std
 #include <memory>

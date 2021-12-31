@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Engine/Renderer/Pipeline.hpp"
+#include "Engine/Renderer/GraphicsPipeline2D.hpp"
 #include "Engine/Renderer/RendererCmd.hpp"
 
 //std
@@ -26,7 +26,7 @@ namespace GL
 		void Rect(glm::vec3 position, glm::vec2 size);
 
 	private:
-		std::unique_ptr<Pipeline> m_RectPipeline;
+		std::unique_ptr<GraphicsPipeline2D> m_RectPipeline;
 		uint32_t m_Width, m_Height;
 
 	private:
