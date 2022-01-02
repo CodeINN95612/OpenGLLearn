@@ -107,6 +107,22 @@
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Engine\Events\Event.hpp">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Events\KeyboardEvent.hpp">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Events\MouseEvent.hpp">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Events\WindowEvent.hpp">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="src\Engine\GUI\GuiRenderer.hpp">
       <SubType>
       </SubType>

@@ -4,6 +4,12 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
+//Events
+#include "Engine/Events/Event.hpp"
+#include "Engine/Events/MouseEvent.hpp"
+#include "Engine/Events/KeyboardEvent.hpp"
+#include "Engine/Events/WindowEvent.hpp"
+
 //Core
 #include "Engine/Core/Window.hpp"
 #include "Engine/Core/Input.hpp"

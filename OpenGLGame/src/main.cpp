@@ -7,9 +7,16 @@
 #define WIDTH 800
 #define HEIGHT 600
 
+void OnEvent(GL::Event& ev)
+{
+    printf("Event Category: %i \n", (int)ev.GetCategory());
+}
+
 int main(int argc, char** argv)
 {
     GL::Window window(WIDTH, HEIGHT);
+    window.SetEventFunction(EVENT_BIND_FN(OnEvent));
+
     GL::Input::Initialize(window);
 
     GL::Renderer2D renderer;
