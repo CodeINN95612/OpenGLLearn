@@ -90,6 +90,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Engine\Core\App.cpp" />
     <ClCompile Include="src\Engine\GUI\GuiRenderer.cpp" />
     <ClCompile Include="src\Engine\Renderer\Image2D.cpp" />
     <ClCompile Include="src\Engine\Renderer\GraphicsPipeline2D.cpp" />
@@ -107,6 +108,10 @@
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Engine\Core\App.hpp">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="src\Engine\Events\Event.hpp">
       <SubType>
       </SubType>

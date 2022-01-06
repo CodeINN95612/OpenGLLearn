@@ -10,9 +10,9 @@ namespace GL
 {
 	static GLFWwindow* pWindow = nullptr;
 
-	void Input::Initialize(Window& window)
+	void Input::Initialize(std::unique_ptr<Window>& window)
 	{
-		pWindow = (GLFWwindow*)window.GetGLFWWindowPtr();
+		pWindow = (GLFWwindow*)window->GetGLFWWindowPtr();
 	}
 
 	void Input::Terminate()

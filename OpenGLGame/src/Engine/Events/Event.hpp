@@ -18,14 +18,16 @@ namespace GL
 		};
 		
 	public:
+		bool Handled;
+
+	public:
 		Event() = default;
 		virtual ~Event() = default;
 
 		inline static Category GetStaticCategory() { return Category::None; }
 		virtual Category GetCategory() const { return Category::None; }
-
 	};
 
 }
 
-#define EVENT_BIND_FN(fn) std::bind(fn, std::placeholders::_1)
+#define EVENT_BIND_FN(fn) std::bind(&fn, this, std::placeholders::_1)

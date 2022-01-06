@@ -7,6 +7,50 @@
 #define WIDTH 800
 #define HEIGHT 600
 
+class Game final : public GL::App
+{
+public:
+    Game() : GL::App("Game", 1240, 720) {}
+    virtual ~Game() = default;
+
+    virtual void OnStart() override 
+    {
+    }
+
+    virtual void OnUpdate(float deltatime) override 
+    {
+        m_Pos.x += 1.0f;
+
+        //Rendering
+        GL::RendererCmd::Clear(GL::Color::Vec::Gray25);
+
+        m_Renderer.OnResize(m_pWindow->GetWidth(), m_pWindow->GetHeight());
+
+        m_Renderer.Begin();
+
+        for (int i = 0; i < m_pWindow->GetWidth() / 50; i++)
+        {
+            for (int j = 0; j < m_pWindow->GetHeight() / 50; j++)
+            {
+                m_Renderer.Rect({ (i + 0.5f) * 50.0f, (j + 0.5f) * 50.0f, 0.0f }, { 40.0f, 40.0f });
+            }
+        }
+
+        m_Renderer.End();
+    }
+    
+    virtual void OnGui() override {}
+
+    virtual void OnEvent(GL::Event& ev) override {}
+
+    virtual void OnEnd() override {}
+
+private:
+    GL::Renderer2D m_Renderer;
+    glm::vec3 m_Pos;
+
+};
+
 void OnEvent(GL::Event& ev)
 {
     printf("Event Category: %i \n", (int)ev.GetCategory());
@@ -14,40 +58,7 @@ void OnEvent(GL::Event& ev)
 
 int main(int argc, char** argv)
 {
-    GL::Window window(WIDTH, HEIGHT);
-    window.SetEventFunction(EVENT_BIND_FN(OnEvent));
-
-    GL::Input::Initialize(window);
-
-    GL::Renderer2D renderer;
-
-    glm::vec3 pos{};
-    while (!window.ShouldClose())
-    {
-        //Update
-        pos.x += 1.0f;
-
-        //Rendering
-        GL::RendererCmd::Clear(GL::Color::Vec::Gray25);
-        
-        renderer.OnResize(window.GetWidth(), window.GetHeight());
-
-        renderer.Begin();
-
-        for (int i = 0; i < 16; i++)
-        {
-            for (int j = 0; j < 12; j++)
-            {
-                renderer.Rect({ (i+ 0.5f) * 50.0f, (j+ 0.5f) * 50.0f, 0.0f }, { 40.0f, 40.0f });
-            }
-        }
-
-        renderer.End();
-
-        window.PollEvents();
-        window.SwapBuffers();
-    }
-
-    GL::Input::Terminate();
+    Game game;
+    game.Run();
 	return 0;
 }

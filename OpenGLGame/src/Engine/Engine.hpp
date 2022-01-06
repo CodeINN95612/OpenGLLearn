@@ -13,6 +13,7 @@
 //Core
 #include "Engine/Core/Window.hpp"
 #include "Engine/Core/Input.hpp"
+#include "Engine/Core/App.hpp"
 
 //Renderer
 #include "Engine/Renderer/Renderer2D.hpp"

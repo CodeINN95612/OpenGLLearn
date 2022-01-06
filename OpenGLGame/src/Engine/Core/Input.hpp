@@ -11,7 +11,7 @@ namespace GL
 		Input(const Input & other) = delete;
 		Input& operator==(const Input & other) = delete;
 
-		static void Initialize(Window& window);
+		static void Initialize(std::unique_ptr<Window>& window);
 		static void Terminate();
 
 		static bool IsKeyPressed(int glfwKey);
