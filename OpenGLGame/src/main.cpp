@@ -28,9 +28,9 @@ public:
 
         m_Renderer.Begin();
 
-        for (int i = 0; i < m_pWindow->GetWidth() / 50; i++)
+        for (uint32_t i = 0; i < m_pWindow->GetWidth() / 50; i++)
         {
-            for (int j = 0; j < m_pWindow->GetHeight() / 50; j++)
+            for (uint32_t j = 0; j < m_pWindow->GetHeight() / 50; j++)
             {
                 m_Renderer.Rect({ (i + 0.5f) * 50.0f, (j + 0.5f) * 50.0f, 0.0f }, { 40.0f, 40.0f });
             }
@@ -56,9 +56,18 @@ void OnEvent(GL::Event& ev)
     printf("Event Category: %i \n", (int)ev.GetCategory());
 }
 
+using namespace GL::ECS;
+
 int main(int argc, char** argv)
 {
     Game game;
     game.Run();
+
+    Coordinator coord;
+    coord.RegisterComponent<Transform2DComponent>();
+
+    EntityID entity = coord.CreateEntity();
+    coord.AddComponent(entity, Transform2DComponent{});
+
 	return 0;
 }

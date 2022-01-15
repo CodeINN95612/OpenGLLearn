@@ -26,4 +26,9 @@
 #include "Engine/Renderer/Color.hpp"
 #include "Engine/Renderer/BufferLayout.hpp"
 
+//ECS
+#include "Engine/ECS/Coordinator.hpp"
+#include "Engine/ECS/Components.hpp"
+
 //GUI
+

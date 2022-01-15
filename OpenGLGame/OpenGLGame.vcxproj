@@ -112,6 +112,42 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="src\Engine\ECS\ComponentArray.hpp">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="src\Engine\ECS\ComponentID.hpp">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="src\Engine\ECS\ComponentManager.hpp">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="src\Engine\ECS\Components.hpp">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="src\Engine\ECS\Coordinator.hpp">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="src\Engine\ECS\EntityID.hpp">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="src\Engine\ECS\EntityManager.hpp">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="src\Engine\ECS\System.hpp">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="src\Engine\ECS\SystemManager.hpp">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="src\Engine\Events\Event.hpp">
       <SubType>
       </SubType>
