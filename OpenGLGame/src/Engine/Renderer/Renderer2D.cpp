@@ -10,9 +10,10 @@
 
 namespace GL
 {
-	Renderer2D::Renderer2D()
+	Renderer2D::Renderer2D(uint32_t width, uint32_t height)
 	{
 		InitRectPipeline();
+		OnResize(width, height);
 	}
 
 	Renderer2D::~Renderer2D()
@@ -22,8 +23,6 @@ namespace GL
 	void Renderer2D::OnResize(uint32_t width, uint32_t height)
 	{
 		glViewport(0, 0, width, height);
-		m_Width = width;
-		m_Height = height;
 	}
 
 	void Renderer2D::Begin(const glm::mat4& viewProjectionMatrix)

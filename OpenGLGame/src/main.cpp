@@ -10,11 +10,17 @@
 class Game final : public GL::App
 {
 public:
-    Game() : GL::App("Game", 1240, 720) {}
+    Game() : GL::App("Game", WIDTH, HEIGHT) {}
     virtual ~Game() = default;
 
     virtual void OnStart() override 
     {
+    }
+
+    void OnResize(GL::WindowResizeEvent& ev)
+    {
+        m_Renderer.OnResize(m_pWindow->GetWidth(), m_pWindow->GetHeight());
+        m_Camera.OnResize(m_pWindow->GetWidth(), m_pWindow->GetHeight());
     }
 
     virtual void OnUpdate(float deltatime) override 
@@ -23,9 +29,6 @@ public:
         m_BGColor.b = glm::sin(glm::radians<float>(FrameCount)) / 2.0f + 0.5f;
         //Rendering
         GL::RendererCmd::Clear(m_BGColor);
-
-        m_Renderer.OnResize(m_pWindow->GetWidth(), m_pWindow->GetHeight());
-        m_Camera.OnResize(m_pWindow->GetWidth(), m_pWindow->GetHeight());
 
         m_Renderer.Begin(m_Camera.GetViewProjectionMatrix());
 
@@ -44,15 +47,19 @@ public:
     
     virtual void OnGui() override {}
 
-    virtual void OnEvent(GL::Event& ev) override {}
+    virtual void OnEvent(GL::Event& ev) override
+    {
+        GL::EventManager manager(ev);
+        manager.Dispatch<GL::WindowResizeEvent>(EVENT_BIND_FN(Game::OnResize));
+    }
 
     virtual void OnEnd() override {}
 
 private:
-    GL::Renderer2D m_Renderer;
+    GL::Renderer2D m_Renderer{ WIDTH, HEIGHT };
     GL::OthorgraphicCamera m_Camera{WIDTH, HEIGHT, {0.0f, 0.0f, 0.0f}};
 
-    glm::vec3 m_Pos;
+    glm::vec3 m_Pos{};
     glm::vec4 m_BGColor{0.05f, 1.0f, 0.05f, 1.0f};
     uint64_t FrameCount = 0;
 
