@@ -26,8 +26,9 @@ namespace GL
 		m_Height = height;
 	}
 
-	void Renderer2D::Begin()
+	void Renderer2D::Begin(const glm::mat4& viewProjectionMatrix)
 	{
+		m_CurrentViewProjection = viewProjectionMatrix;
 	}
 
 	void Renderer2D::End()
@@ -40,14 +41,14 @@ namespace GL
 		model = glm::translate(model, position);
 		model = glm::scale(model, { size.x,  size.y, 1.0f });
 
-		glm::mat4 view(1.0f);
+		//glm::mat4 view(1.0f);
 
-		glm::mat4 projection = glm::ortho(0.0f, (float)m_Width, (float)m_Height, 0.0f, -1.1f, 1.1f);
+		//glm::mat4 projection = glm::ortho(0.0f, (float)m_Width, (float)m_Height, 0.0f, -1.1f, 1.1f);
 
 		m_RectPipeline->Bind(0);
 		m_RectPipeline->GetShader()->SetTexture("uTexture", 0);
 		m_RectPipeline->GetShader()->SetUniform4f("uColor", Color::Vec::Black);
-		m_RectPipeline->GetShader()->SetUniformMat4f("uMVP", projection * view * model);
+		m_RectPipeline->GetShader()->SetUniformMat4f("uMVP", m_CurrentViewProjection * model);
 
 		RendererCmd::DrawElements(6);
 	}

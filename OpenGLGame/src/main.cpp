@@ -20,13 +20,14 @@ public:
     virtual void OnUpdate(float deltatime) override 
     {
         m_Pos.x += 1.0f;
-
+        m_BGColor.b = glm::sin(glm::radians<float>(FrameCount)) / 2.0f + 0.5f;
         //Rendering
-        GL::RendererCmd::Clear(GL::Color::Vec::Gray25);
+        GL::RendererCmd::Clear(m_BGColor);
 
         m_Renderer.OnResize(m_pWindow->GetWidth(), m_pWindow->GetHeight());
+        m_Camera.OnResize(m_pWindow->GetWidth(), m_pWindow->GetHeight());
 
-        m_Renderer.Begin();
+        m_Renderer.Begin(m_Camera.GetViewProjectionMatrix());
 
         for (uint32_t i = 0; i < m_pWindow->GetWidth() / 50; i++)
         {
@@ -37,6 +38,8 @@ public:
         }
 
         m_Renderer.End();
+
+        ++FrameCount;
     }
     
     virtual void OnGui() override {}
@@ -47,7 +50,11 @@ public:
 
 private:
     GL::Renderer2D m_Renderer;
+    GL::OthorgraphicCamera m_Camera{WIDTH, HEIGHT, {0.0f, 0.0f, 0.0f}};
+
     glm::vec3 m_Pos;
+    glm::vec4 m_BGColor{0.05f, 1.0f, 0.05f, 1.0f};
+    uint64_t FrameCount = 0;
 
 };
 

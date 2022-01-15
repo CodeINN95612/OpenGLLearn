@@ -26,6 +26,10 @@
 #include "Engine/Renderer/Color.hpp"
 #include "Engine/Renderer/BufferLayout.hpp"
 
+//Game
+#include "Engine/Game/Camera.hpp"
+#include "Engine/Game/OthorgraphicCamera.hpp"
+
 //ECS
 #include "Engine/ECS/Coordinator.hpp"
 #include "Engine/ECS/Components.hpp"

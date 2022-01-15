@@ -20,7 +20,7 @@ namespace GL
 
 		void OnResize(uint32_t width, uint32_t height);
 
-		void Begin();
+		void Begin(const glm::mat4& viewProjectionMatrix);
 		void End();
 
 		void Rect(glm::vec3 position, glm::vec2 size);
@@ -28,6 +28,7 @@ namespace GL
 	private:
 		std::unique_ptr<GraphicsPipeline2D> m_RectPipeline;
 		uint32_t m_Width, m_Height;
+		glm::mat4 m_CurrentViewProjection{1.0f};
 
 	private:
 		void InitRectPipeline();
